@@ -1,5 +1,5 @@
 import unittest
-from employees.Volunteer import Volunteer
+from employees.volunteer import Volunteer
 
 
 class TestSalaried(unittest.TestCase):

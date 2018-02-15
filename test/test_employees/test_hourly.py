@@ -1,5 +1,5 @@
 import unittest
-from employees.Hourly import Hourly
+from employees.hourly import Hourly
 
 
 class TestHourly(unittest.TestCase):

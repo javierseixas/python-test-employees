@@ -1,4 +1,4 @@
-from employees.Employee import Employee
+from employees.employee import Employee
 
 
 class Hourly(Employee):

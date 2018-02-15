@@ -1,5 +1,5 @@
 import unittest
-from employees.Salaried import Salaried
+from employees.salaried import Salaried
 
 
 class TestSalaried(unittest.TestCase):
