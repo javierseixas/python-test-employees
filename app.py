@@ -17,14 +17,16 @@ class App(object):
         return accumulated_salaries
 
 
+# APPLICATION functionality goes below
+
 app = App()
 
 salaried_3000 = salaried.Salaried(3000)
 salaried_5000 = salaried.Salaried(5000)
 volunteer = volunteer.Volunteer()
-hourly_150 = hourly.Hourly(150)
+hourly_150 = hourly.Hourly(150, [])
 hourly_150.add_card(Card(10))
-hourly_200 = hourly.Hourly(200)
+hourly_200 = hourly.Hourly(200, [])
 hourly_200.add_card(Card(20))
 
 app.add_employee(salaried_3000)
