@@ -1,4 +1,6 @@
 import unittest
+
+from cards.card import Card
 from employees.volunteer import Volunteer
 from employees.hourly import Hourly
 from employees.salaried import Salaried
@@ -11,7 +13,7 @@ class TestApp(unittest.TestCase):
 
         volunteer = Volunteer()
         salaried = Salaried(1000)
-        hourly = Hourly(100, 10)
+        hourly = Hourly(100, [Card(10)])
         test_employees = [volunteer, salaried, hourly]
 
         application = App(test_employees)
