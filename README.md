@@ -4,7 +4,7 @@
 
 The application calculates the total salary for all given employees, considering the salaried, hourly and volunteer types.
 
-### Given employees
+### How it works
 
 ```
 * 2 salaried employees with 3000 and 5000 fees (8000)
