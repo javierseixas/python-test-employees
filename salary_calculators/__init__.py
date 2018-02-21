@@ -1,0 +1,3 @@
+from salary_calculators.fixed_calculator import FixedCalculator
+from salary_calculators.hourly_calculator import HourlyCalculator
+from salary_calculators.voluntary_calculator import VoluntaryCalculator
