@@ -1,40 +1,45 @@
+from accountant import Accountant
+from employees.staff import Staff
+from employees.employee import Employee
+from contracts.hourly import *
+from contracts.fixed import *
+from contracts.voluntary import *
+from salary_calculators.hourly_calculator import *
 from cards.card import Card
-from employees import salaried, volunteer, hourly
-
 
 class App(object):
 
-    def __init__(self, employees=[]):
-        self.employees = employees
+    def __init__(self):
+        self._accountant = Accountant()
 
-    def add_employee(self, employee):
-        self.employees.append(employee)
+    def execute(self):
+        staff = self._create_staff_fixtures()
+        print(self._accountant.calculate_staff_salary(staff))
 
-    def calculate_all_workers_salary(self):
-        accumulated_salaries = 0
-        for employee in self.employees:
-            accumulated_salaries += employee.calculate_salary()
-        return accumulated_salaries
+    def _create_staff_fixtures(self):
+        return Staff([self._new_employee(10, 'hourly', [10, 5])])
 
 
-# APPLICATION functionality goes below
+    def _new_employee(self, salary, contract, tracked_hours):
+        if contract == 'hourly':
+            cards = []
+            for hours in tracked_hours:
+                cards.append(Card(hours))
+            return Employee(Hourly(salary), HourlyCalculator(), cards)
+
+        if contract == 'voluntary':
+            cards = []
+            for hours in tracked_hours:
+                cards.append(Card(hours))
+            return Employee(Voluntary(), HourlyCalculator(), cards)
+
+        if contract == 'fixed':
+            cards = []
+            for hours in tracked_hours:
+                cards.append(Card(hours))
+            return Employee(Fixed(salary), HourlyCalculator(), cards)
+
+        pass
 
 app = App()
-
-salaried_3000 = salaried.Salaried(3000)
-salaried_5000 = salaried.Salaried(5000)
-volunteer = volunteer.Volunteer()
-hourly_150 = hourly.Hourly(150, [])
-hourly_150.add_card(Card(10))
-hourly_200 = hourly.Hourly(200, [])
-hourly_200.add_card(Card(20))
-
-app.add_employee(salaried_3000)
-app.add_employee(salaried_5000)
-app.add_employee(volunteer)
-app.add_employee(hourly_150)  # 1500
-app.add_employee(hourly_200)  # 4000
-
-print(app.calculate_all_workers_salary())
-
-
+app.execute()

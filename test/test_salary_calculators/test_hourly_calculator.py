@@ -16,7 +16,7 @@ class TestHourlyCalculator(unittest.TestCase):
     def test_with_employee_with_one_card(self):
         self.employee.add_card(Card(10))
 
-        result = self.calculator.calculate_salary(self.employee)
+        result = self.calculator.calculate(self.employee)
         expected = 100
 
         self.assertEqual(expected, result)
@@ -26,14 +26,14 @@ class TestHourlyCalculator(unittest.TestCase):
         self.employee.add_card(Card(20))
         self.employee.add_card(Card(5))
 
-        result = self.calculator.calculate_salary(self.employee)
+        result = self.calculator.calculate(self.employee)
         expected = 350
 
         self.assertEqual(expected, result)
 
     def test_with_employee_with_no_cards(self):
 
-        result = self.calculator.calculate_salary(self.employee)
+        result = self.calculator.calculate(self.employee)
         expected = 0
 
         self.assertEqual(expected, result)

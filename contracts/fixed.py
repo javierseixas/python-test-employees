@@ -1,9 +1,9 @@
 from contracts.contract import Contract
 
 
-class Fixes(Contract):
+class Fixed(Contract):
 
-    def __init(self, salary):
+    def __init__(self, salary):
         self._salary = salary
 
     def salary(self):

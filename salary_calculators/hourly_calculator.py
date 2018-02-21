@@ -1,6 +1,6 @@
 class HourlyCalculator(object):
 
-    def calculate_salary(self, employee):
+    def calculate(self, employee):
         return self._sum_total_hours(employee.give_cards()) * employee.contract().salary()
 
     def _sum_total_hours(self, cards):
