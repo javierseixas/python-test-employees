@@ -1,5 +1,3 @@
-
-
 class Employee(object):
 
     _cards = []
