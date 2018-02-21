@@ -1,7 +1,7 @@
 import unittest
-from employees.employee import Employee
+from employees import Employee
 from contracts import Fixed
-from salary_calculators.fixed_calculator import FixedCalculator
+from salary_calculators import FixedCalculator
 
 
 class TestFixedCalculator(unittest.TestCase):

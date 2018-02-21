@@ -1,10 +1,8 @@
 from accountant import Accountant
-from employees.staff import Staff
-from employees.employee import Employee
-from contracts.hourly import *
-from contracts.fixed import *
-from contracts.voluntary import *
-from salary_calculators.hourly_calculator import *
+from employees import Staff
+from employees import Employee
+from contracts import *
+from salary_calculators import *
 from cards.card import Card
 
 class App(object):

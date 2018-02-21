@@ -1,5 +1,5 @@
 import unittest
-from employees.employee import Employee
+from employees import Employee
 from contracts import Voluntary
 from salary_calculators import VoluntaryCalculator
 

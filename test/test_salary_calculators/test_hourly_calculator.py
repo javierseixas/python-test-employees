@@ -1,8 +1,8 @@
 import unittest
-from employees.employee import Employee
-from contracts.hourly import Hourly
-from salary_calculators.hourly_calculator import HourlyCalculator
-from cards.card import Card
+from employees import Employee
+from contracts import Hourly
+from salary_calculators import HourlyCalculator
+from cards import Card
 
 
 class TestHourlyCalculator(unittest.TestCase):

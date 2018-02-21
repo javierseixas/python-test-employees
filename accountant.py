@@ -1,4 +1,3 @@
-
 class Accountant(object):
 
     def calculate_staff_salary(self, staff):
