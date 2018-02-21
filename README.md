@@ -2,7 +2,12 @@
 
 ## Application
 
-The application calculates the total salary for all given employees, considering the salaried, hourly and volunteer types.
+The application calculates the total salary for all given employees, considering the fixed, hourly and volunteer types.
+
+```
+python app.py
+```
+
 
 ### How it works
 
@@ -21,16 +26,15 @@ Run `python app.py` to get the result printed.
 ### Design explanations
 
 * `app.py` is the orchestrator for the calculation
-* Each employee has its own logic to calculate the salary
-    * The hourly employee has a more complex way to calculate its salary. Despite that, I don't think the class requires another class to calculate it.
-* Each file has a test, except `card.py` that has no logic at all.
-* There is the `employee.py` which accomplish the role of interface.
-* `Accountant` works as a wrapper of `Staff` since doesn't need to have more logic, but it represents a realworld role that may evolve.
+* The logic to calculate the salary is in the calculator, where **Composition** is applied.
+    * It case of changing the way of calculate salaries, only is needed to change the `calculator` accordingly.
+* `Accountant` works as a wrapper of `Staff` since it doesn't need to have more logic, but it represents a realworld role that may evolve.
 
 #### Applied patterns
 
 * `Staff` and `Employee` applies **Composite pattern**
-
+* `VoluntaryCalculater` applies **Null-Object pattern**
+* In `App` there is the private method to create Employees. It applies the **Factory Method pattern**
 
 ## Tests
 
@@ -44,7 +48,7 @@ Then execute nosetests to run all them:
 nosetests
 ```
 
-## Aspectes not taken into account
+## Aspects not taken into account
 
 * If an employee changes his contract, in the real world the time of the month that was in the previous type of contract should be taken into account to calculate its salary
 * The card could have have state with a `paid` attribute
@@ -53,3 +57,7 @@ nosetests
 ## Other considerations
 
 * The calculator logic could be inside the contract classes and would be also funcional. It has been separated in another class since I've consider the `Contract` classes as model data.
+* Classes like `Accountant` or `Employee` doesn't have test because they don't have enough logic to need a test. This is my opinion about optimizing test maintenance.
+* `Employee` has the method `obtain_salary` for different reasons:
+    * For using the Composite pattern with staff
+    * Because the accountant cannot calculate (or at least I don't know the way) the salary of all employees without `if` conditional for checking employees types.
