@@ -13,3 +13,6 @@ class Staff(object):
         for employee in self._employees:
             total_salaries += employee.obtain_salary()
         return total_salaries
+
+    def employees(self):
+        return self._employees

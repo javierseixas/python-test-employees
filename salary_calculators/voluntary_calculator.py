@@ -1,4 +1,4 @@
 class VoluntaryCalculator(object):
 
-    def calculate(self, contract):
-        return 0
+    def calculate(self, employee):
+        return 0 + employee.obtain_pending_salary()
