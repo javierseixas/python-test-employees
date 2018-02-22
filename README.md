@@ -47,7 +47,7 @@ In *[Aspects not taken into account](#aspects-not-taken-into-account)* section i
 #### Applied patterns
 
 * `Staff` and `Employee` applies **Composite pattern**
-* `VoluntaryCalculater` applies **Null-Object pattern**
+* `VoluntaryCalculator` applies **Null-Object pattern**
 * In `App` there is the private method to create Employees. It applies the **Factory Method pattern**
 
 ## Tests
@@ -67,6 +67,7 @@ nosetests
 * If an employee changes his contract, in the real world the time of the month that was in the previous type of contract should be taken considering dates. Here I'm not considering dates neither proportional pays.
 * The card could have have state with a `paid` attribute
 * A card could register more info about how hours have been tracked. Here is simplified.
+* The fact that the accountant calculates the total salaries doesn't mean they are paid, so the Cards registry is not reset. In a real process of payment, it should be reset, besides considering dates for payments.
 
 ## Other considerations
 

@@ -18,7 +18,7 @@ class App(object):
         staff = self._create_staff_fixtures()
 
         if change_contract:
-            self._change_contract_for_volunteer_to_hourly(staff)
+            self._change_contract_for_hourly_to_fixed(staff)
 
         print(self._accountant.calculate_staff_salary(staff))
 
@@ -53,15 +53,15 @@ class App(object):
             cards.append(Card(hours))
         return cards
 
-    def _change_contract_for_volunteer_to_hourly(self, staff):
+    def _change_contract_for_hourly_to_fixed(self, staff):
         employee = staff.employees()[1]  # Getting an hourly
         employee.change_contract(Fixed(2500), FixedCalculator())
         employee.add_card(Card(10))
 
 
-def main(argv):
+def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], ":c", ["help", "output="])
+        opts, args = getopt.getopt(sys.argv[1:], ":c")
     except getopt.GetoptError as err:
         # print help information and exit:
         print(err) # will print something like "option -a not recognized"
@@ -77,4 +77,4 @@ def main(argv):
     app.execute(change_contract)
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+   main()

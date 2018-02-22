@@ -11,6 +11,9 @@ class Employee(object):
     def contract(self):
         return self._contract
 
+    def calculator(self):
+        return self._salary_calculator
+
     def change_contract(self, new_contract, new_calculator):
         self._pending_salary = self._salary_calculator.calculate(self)
         self._cards = []
