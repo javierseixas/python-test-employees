@@ -34,7 +34,7 @@ Using the flag `-c` it is simulated that one hourly employee changes its contrac
 
 In that case, the expected fees will be **16000**.
 
-In *[Aspects not taken into account](#aspectsnottakenintoaccount)* section it is explained the limitation of the system.
+In *[Aspects not taken into account](#aspects-not-taken-into-account)* section it is explained the limitation of the system.
 
 
 ### Design explanations
